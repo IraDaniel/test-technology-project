@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-    <context:component-scan base-package="com.company" />
+    <!--<context:component-scan base-package="com.company" />-->
 
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -22,8 +22,11 @@
         </property>
     </bean>
 
-    <mvc:resources mapping="/resources/**" location="/resources/" />
+    <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->
 
-    <mvc:annotation-driven />
+    <!--<mvc:annotation-driven/>-->
+    <bean
+            class="com.company.HelloController">
+    </bean>
 
 </beans>
