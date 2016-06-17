@@ -3,6 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
@@ -20,9 +22,9 @@
 
     <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->
 
-    <!--<mvc:annotation-driven/>-->
-    <bean
-            class="com.company.HelloController">
-    </bean>
+    <mvc:annotation-driven/>
+    <bean id="helloController" class="com.company.HelloController"/>
+    <bean id="articleController" class="com.company.controller.ArticleController"/>
+
 
 </beans>
