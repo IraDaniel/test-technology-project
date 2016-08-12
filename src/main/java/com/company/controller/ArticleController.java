@@ -1,5 +1,7 @@
 package com.company.controller;
 
+import com.company.dao.ArticleDao;
+import com.company.dao.impl.ArticleDaoImpl;
 import com.company.entity.Article;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,22 +18,16 @@ import java.util.List;
 @RestController
 public class ArticleController {
 
-    @RequestMapping(value = "/article", method = RequestMethod.GET)
-    public Article getString() {
-        Article article = new Article();
-        article.setTitle("Java");
-        article.setText("Java is a programming language");
+    ArticleDao dao = new ArticleDaoImpl();
 
-        return article;
+    @RequestMapping(value = "/article", method = RequestMethod.GET)
+    public Article getArticle() {
+        return dao.getArticleByTitle("Java");
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<Article> getListArticles() {
-        List<Article> articles = new ArrayList<>();
-        articles.add(new Article("Ada", "Programming language"));
-        articles.add(new Article("Java", "Programming language"));
-
-        return articles;
+        return dao.getAllArticles();
     }
 
 
